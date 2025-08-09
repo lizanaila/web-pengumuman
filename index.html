@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengumuman Kelulusan MPK & OSIS</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    .container {
+        background: white;
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    img.logo {
+        width: 100px;
+        margin-bottom: 10px;
+    }
+    h1 {
+        color: #333;
+        font-size: 20px;
+    }
+    input, button {
+        width: 90%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    .result {
+        font-size: 18px;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo sekolah -->
+    <img src="logo-sman19.png" alt="Logo SMA Negeri 19 Medan" class="logo">
+
+    <!-- Judul -->
+    <h1>Pengumuman Calon Pengurus Baru MPK & OSIS</h1>
+
+    <!-- Form input -->
+    <input type="text" id="nama" placeholder="Nama Lengkap">
+    <input type="text" id="kelas" placeholder="Kelas (contoh: X-1)">
+    <button onclick="cekKelulusan()">Cek Kelulusan</button>
+
+    <!-- Hasil -->
+    <div id="hasil" class="result"></div>
+</div>
+
+<script>
+    // Daftar siswa yang lulus
+    const daftarLulus = [
+        "Rima Aulia X-10","Kaka Juan Nasution X-1","Putri Melani Napitupulu X-1","Angelica Meithalica Nainggolan X-1","Alfredo Rugery Sitorus X-2","Theresia Agatha Simanjuntak X-7","Ribka Lasmaria Sianturi X-7","Grecya Hutahaean X-2","Zulhadijah Anggraini X-2","Disney Aurelia Santoso X-2","Hafizhoh X-4","Joymita Hermulana Hutagaol X-8","Erlita Yuni Fransisca Hutabarat X-8","Citra Melati X-11","Gibta Chelsi Br. Ginting X-8","Meischa Anastasya Silalahi X-2","Joy Aprilcia Simanjuntak X-7","Siti Sufiah X-9","Raditya Immanuel Sinulingga X-6","Syurin Grahasia HRP X-10","Rafa Al Fahrezi X-3","Muhammad Haikal X-7","Wilma Flair Silitonga X-10","Natasya Renata Manullang X-3","Marzuq Prima X-2","Nehemia Elva Panggabean X-8","Grace Lasmaria Simbolon X-9","Marissa Paskah Sirait X-11","Rindu Grace Valencya Tinambunan X-11","Rani Mucerdi Banjarnahor X-4","Syva Nadira Putri X-11","Eka Saulina Siburian X-2","Joel Hansen Hutabarat X-7","Sella Manik X-6","Patricia Botania Simamora X-10","Dario Affan Setiawan","Steven Gulo X-11","M. Ridho X-9","Monika X-7","Elisabeth","Berkat X-4","Anggellika Simanullang X-1","Ainiyah Husna X-1","Mario Jeremy Sigalingging X-1","Nadya Chandra Izzati X-9","Axtha Julyana Agustina Tampubolon X-5","Shifa Kamilla Napitapulu X-4","Tiofany Novitasari Silalahi X-5","Yuanita Paska Cristiani Nababan X-7","Aulia Qulbi Jannati X-7","Fathur Auhillah Sadiq X-11","Salsalina Dehan Tarigan X-8","Nia Amelia X-8","Ainel Memories Lase","Priscilla Tabitha Simamora X-11","Keysa Aurelia Tarigan X-2","Shyren Aurellya X-10","Cintia Bella Parhusip X-9","Mariatul Qibthiyah Lubis X-6","Rizky Khalil Azmi X-6","Reni X-6","Fiter Hutagaol X-8"
+    ];
+
+    function cekKelulusan() {
+        const nama = document.getElementById("nama").value.trim();
+        const kelas = document.getElementById("kelas").value.trim();
+        const hasil = document.getElementById("hasil");
+
+        const inputGabungan = nama + " " + kelas;
+
+        if (daftarLulus.some(n => n.toLowerCase() === inputGabungan.toLowerCase())) {
+            hasil.style.color = "green";
+            hasil.textContent = "Selamat Anda Lulus";
+        } else {
+            hasil.style.color = "red";
+            hasil.textContent = "Maaf Anda Tidak Lulus, Jangan Bersedih. Mungkin MPK dan OSIS bukan tempat untuk kamu mengembangkan diri.";
+        }
+    }
+</script>
+
+</body>
+</html>
